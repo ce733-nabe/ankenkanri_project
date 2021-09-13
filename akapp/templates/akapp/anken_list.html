@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for anken in anken_list %}
+<p>
+    {{ anken.pub_date }}
+    <a href="{% url 'akapp:anken_detail' anken.pk %}">{{ anken.ankenmei }}</a>
+</p>
+{% endfor %}
+<a href="{% url 'akapp:index' %}">戻る</a>
+</body>
+</html>
