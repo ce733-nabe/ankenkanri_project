@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'akapp/base.html' %}
+{% block content %}
 <p>{{ anken.pub_date }}</p>
 <p>{{ anken.ankenmei }}</p>
 <p>{{ anken.naiyou }}</p>
 <a href="{% url 'akapp:anken_update' anken.pk %}">編集</a>
 <a href="{% url 'akapp:anken_delete' anken.pk %}">削除</a>
 <a href="{% url 'akapp:index' %}">戻る</a>
-</body>
-</html>
+{% endblock %}

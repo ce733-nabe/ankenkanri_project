@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('', include('akapp.urls')), # 追加：includeメソッドでurl設定を追加
+    path('', include('akapp.urls')), # 追加：includeメソッドでurl設定を追加
+    path('account/', include('allauth.urls')), # 追加
 ]

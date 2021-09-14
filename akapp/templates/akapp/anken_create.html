@@ -1,16 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>akapp</title>
-</head>
-<body>
-
+{% extends 'akapp/base.html' %}
+{% load widget_tweaks %}
+{% block content %}
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">投稿</button>
+    <div class="form-group"></div>
+        <label>{{ form.pub_date.label }}</label>
+        {{ form.pub_date | add_class:'form-control col-2'}}
+    </div>
+    <div class="form-group"></div>
+        <label>{{ form.ankenmei.label }}</label>
+        {{ form.ankenmei | add_class:'form-control col-2'}}
+    </div>
+    <div class="form-group"></div>
+        <label>{{ form.iraibusho.label }}</label>
+        {{ form.iraibusho | add_class:'form-control col-2'}}
+    </div>
+    <div class="form-group"></div>
+        <label>{{ form.iraisha.label }}</label>
+        {{ form.iraisha | add_class:'form-control col-2'}}
+    </div>
+    <div class="form-group"></div>
+        <label>{{ form.nouki.label }}</label>
+        {{ form.nouki | add_class:'form-control col-2'}}
+    </div>
+    <div class="form-group"></div>
+        <label>{{ form.mitumorikousu.label }}</label>
+        {{ form.mitumorikousu | add_class:'form-control col-2'}}
+    </div>
+    <div class="form-group"></div>
+        <label>{{ form.naiyou.label }}</label>
+        {{ form.naiyou | add_class:'form-control col-2'}}
+    </div>
+    <div class="form-group"></div>
+        <label>{{ form.genjouchi.label }}</label>
+        {{ form.genjouchi | add_class:'form-control col-2'}}
+    </div>
+    <div class="form-group"></div>
+        <label>{{ form.kitaikouka.label }}</label>
+        {{ form.kitaikouka | add_class:'form-control col-2'}}
+    </div>
+    <div class="form-group"></div>
+        <label>{{ form.tantousha.label }}</label>
+        {{ form.tantousha | add_class:'form-control col-2'}}
+    </div>
+    <div class="form-group"></div>
+        <label>{{ form.koumoku.label }}</label>
+        {{ form.koumoku | add_class:'form-control col-2'}}
+    </div>
+    <div class="form-group"></div>
+        <label>{{ form.joutai.label }}</label>
+        {{ form.joutai | add_class:'form-control col-2'}}
+    </div>
+    <div class="form-group"></div>
+        <label>{{ form.jissekikousu.label }}</label>
+        {{ form.jissekikousu | add_class:'form-control col-2'}}
+    </div>
+    <button type="submit" class="form-control col-1">投稿</button>
 </form>
-
-</body>
-</html>
+{% endblock %}
