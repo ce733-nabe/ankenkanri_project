@@ -1,41 +1,34 @@
 from django.db import models
 from django.utils import timezone
 
-TANTOUSHA_CHOICES = (
-    ("0", "藤井"),
-    ("1", "亀井"),
-    ("2", "渡邊"),
-    ("3", "藤田"),
-    ("4", "猿渡"),
-    ("5", "馬見塚"),
-    ("6", "星野"),
-)
-
-KOUMOKU_CHOICES = (
-    ("0", "案件"),
-    ("1", "案件_別途報告"),
-    ("2", "創意工夫展開"),
-    ("3", "自己研鑽"),
-    ("4", "お知らせ"),
-    ("5", "その他"),
-)
-
-JOUTAI_CHOICES = (
-    ("0", "対応中"),
-    ("1", "完了"),
-    ("2", "一時休止"),
-    ("3", "未着手"),
-    ("4", "指定しない"),
-)
-
-CATEGORI_CHOICES = (
-    ("0", "環境構築"),
-    ("1", "前処理"),
-    ("2", "分析手法"),
-    ("3", "エッジ・設備"),
-    ("4", "その他"),
-)
 class Anken(models.Model):
+    TANTOUSHA_CHOICES = (
+                        ("0", "藤井"),
+                        ("1", "亀井"),
+                        ("2", "渡邊"),
+                        ("3", "藤田"),
+                        ("4", "猿渡"),
+                        ("5", "馬見塚"),
+                        ("6", "星野"),
+                        )
+
+    KOUMOKU_CHOICES = (
+                        ("0", "案件"),
+                        ("1", "案件_別途報告"),
+                        ("2", "創意工夫展開"),
+                        ("3", "自己研鑽"),
+                        ("4", "お知らせ"),
+                        ("5", "その他"),
+                        )
+
+    JOUTAI_CHOICES = (
+                        ("0", "対応中"),
+                        ("1", "完了"),
+                        ("2", "一時休止"),
+                        ("3", "未着手"),
+                        ("4", "指定しない"),
+                        )
+
     pub_date = models.DateTimeField(verbose_name='日付')
     ankenmei = models.CharField(verbose_name='案件名',max_length=200)
     iraibusho = models.CharField(verbose_name='依頼部署',max_length=200)
@@ -55,6 +48,14 @@ class Anken(models.Model):
 
 
 class Shuho(models.Model):
+    CATEGORI_CHOICES = (
+                            ("0", "環境構築"),
+                            ("1", "前処理"),
+                            ("2", "分析手法"),
+                            ("3", "エッジ・設備"),
+                            ("4", "その他"),
+                        )
+                        
     anken = models.ForeignKey(Anken, on_delete=models.CASCADE)
     pub_date = models.DateTimeField(verbose_name='日付')
     naiyou = models.TextField(verbose_name='内容',max_length=1000)

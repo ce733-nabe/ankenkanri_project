@@ -5,5 +5,13 @@
 <p>{{ anken.naiyou }}</p>
 <a href="{% url 'akapp:anken_update' anken.pk %}">編集</a>
 <a href="{% url 'akapp:anken_delete' anken.pk %}">削除</a>
+<h2><a href="{% url 'akapp:shuho_create' %}">週報新規作成</a></h2>
+{% for shuho in anken.shuho_set.all %}
+    <p>{{ shuho.pub_date }}</p>
+    <p>{{ shuho.naiyou }}</p>
+    <p>{{ shuho.get_categori_display }}</p>
+    <a href="{% url 'akapp:shuho_update' shuho.pk %}">編集</a>
+    <a href="{% url 'akapp:shuho_delete' shuho.pk %}">削除</a>
+{% endfor %}
 <a href="{% url 'akapp:index' %}">戻る</a>
 {% endblock %}

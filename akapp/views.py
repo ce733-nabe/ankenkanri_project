@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView, CreateView, ListView, DetailView, UpdateView, DeleteView
-from .forms import AnkenForm
+from .forms import AnkenForm, ShuhoForm
 from django.urls import reverse_lazy
-from .models import Anken
+from .models import Anken, Shuho
 from django.utils import timezone
 
 class IndexView(TemplateView):
@@ -57,4 +57,38 @@ class AnkenUpdateView(UpdateView):
 class AnkenDeleteView(DeleteView):
     template_name = 'akapp/anken_delete.html'
     model = Anken
+    success_url = reverse_lazy('akapp:anken_list')
+
+
+class ShuhoCreateView(CreateView):
+    template_name = 'akapp/shuho_create.html'
+    form_class = ShuhoForm
+    success_url = reverse_lazy('akapp:shuho_create_complete')
+
+
+class ShuhoCreateCompleteView(TemplateView):
+    template_name = 'akapp/shuho_create_complete.html'
+
+
+
+class ShuhoUpdateView(UpdateView):
+    template_name = 'akapp/shuho_update.html'
+    model = Shuho
+    fields = ('anken',
+                'pub_date',
+                'naiyou',
+                'categori',
+                )
+    success_url = reverse_lazy('akapp:anken_list')
+
+    def form_valid(self, form):
+        shuho = form.save(commit=False)
+        shuho.pub_date = timezone.now()
+        shuho.save()
+        return super().form_valid(form)
+
+
+class ShuhoDeleteView(DeleteView):
+    template_name = 'akapp/shuho_delete.html'
+    model = Shuho
     success_url = reverse_lazy('akapp:anken_list')

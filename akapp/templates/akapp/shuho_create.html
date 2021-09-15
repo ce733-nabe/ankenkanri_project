@@ -1,0 +1,24 @@
+{% extends 'akapp/base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group"></div>
+        <label>{{ form.anken.label }}</label>
+        {{ form.anken | add_class:'form-control col-2'}}
+    </div>
+    <div class="form-group"></div>
+        <label>{{ form.pub_date.label }}</label>
+        {{ form.pub_date | add_class:'form-control col-2'}}
+    </div>
+    <div class="form-group"></div>
+        <label>{{ form.naiyou.label }}</label>
+        {{ form.naiyou | add_class:'form-control col-2'}}
+    </div>
+    <div class="form-group"></div>
+        <label>{{ form.categori.label }}</label>
+        {{ form.categori | add_class:'form-control col-2'}}
+    </div>
+    <button type="submit" class="form-control col-1">投稿</button>
+</form>
+{% endblock %}

@@ -10,4 +10,9 @@ urlpatterns = [
     path('anken/detail/<int:pk>/', views.AnkenDetailView.as_view(), name='anken_detail'),
     path('anken/update/<int:pk>/', views.AnkenUpdateView.as_view(), name='anken_update'),
     path('anken/delete/<int:pk>/', views.AnkenDeleteView.as_view(), name='anken_delete'),
+
+    path('shuho/create/', views.ShuhoCreateView.as_view(), name='shuho_create'),
+    path('shuho/create/complete/', views.ShuhoCreateCompleteView.as_view(), name='shuho_create_complete'),
+    path('shuho/update/<int:pk>/', views.ShuhoUpdateView.as_view(), name='shuho_update'),
+    path('shuho/delete/<int:pk>/', views.ShuhoDeleteView.as_view(), name='shuho_delete'),
 ]
