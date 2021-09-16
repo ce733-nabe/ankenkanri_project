@@ -1,4 +1,61 @@
 {% extends 'akapp/base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container">
+    <table class="table caption-top">
+        <caption>案件詳細</caption>
+        <thead>
+            <tr>
+            <th scope="col">日付</th>
+            <th scope="col">案件名</th>
+            <th scope="col">内容</th>
+            <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>{{ anken.pub_date }}</td>
+            <td>{{ anken.ankenmei }}</td>
+            <td>{{ anken.naiyou }}</td>
+            <td>
+                <a class="btn btn-secondary btn-sm" href="{% url 'akapp:anken_update' anken.pk %}">編集</a>
+                <a class="btn btn-danger btn-sm" href="{% url 'akapp:anken_delete' anken.pk %}">削除</a>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <table class="table caption-top">
+        <caption>週報一覧</caption>
+        <thead>
+            <tr>
+            <th scope="col">日付</th>
+            <th scope="col">内容</th>
+            <th scope="col">カテゴリ</th>
+            <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for shuho in anken.shuho_set.all %}
+                <tr>
+                <td>{{ anken.pub_date }}</td>
+                <td>{{ shuho.naiyou }}</td>
+                <td>{{ shuho.get_categori_display }}</td>
+                <td>
+                    <a class="btn btn-secondary btn-sm" href="{% url 'akapp:shuho_update' shuho.pk %}">編集</a>
+                    <a class="btn btn-danger btn-sm" href="{% url 'akapp:shuho_delete' shuho.pk %}">削除</a>
+                </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-primary btn-sm" href="{% url 'akapp:shuho_create' %}">週報新規作成</a>
+</div>
+{% endblock %}
+
+{% comment %}
 {% block content %}
 <p>{{ anken.pub_date }}</p>
 <p>{{ anken.ankenmei }}</p>
@@ -15,3 +72,5 @@
 {% endfor %}
 <a href="{% url 'akapp:index' %}">戻る</a>
 {% endblock %}
+{% endcomment %}
+

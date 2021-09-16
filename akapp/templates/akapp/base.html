@@ -1,13 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="jp">
-{% bootstrap_css %} 
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>MyDjangoApp</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'akapp/css/bootstrap.min.css' %}">
+    <script src="{% static 'akapp/js/bootstrap.bundle.min.js' %}"></script>
+
+    <title>akapp</title>
 </head>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">案件管理APP</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                {# <a class="nav-link " aria-current="page" href="{% url 'list' %}">List</a> #}
+                {# <a class="nav-link" href="{% url 'create' %}">Create</a> #}
+
+                <a class="nav-link" href="{% url 'akapp:index' %}">INDEX</a>
+                <a class="nav-link" href="{% url 'akapp:anken_list' %}">案件一覧</a>
+                <a class="nav-link" href="{% url 'account_logout' %}">ログアウト</a> <!-- 追加 -->
+
+            </div>
+          </div>
+        </div>
+    </nav>
+</header>
 <body>
-    <a href="{% url 'account_logout' %}">ログアウト</a> <!-- 追加 -->
+    {# <a href="{% url 'account_logout' %}">ログアウト</a> <!-- 追加 --> #}
     {% block content %}
     {% endblock %}
 </body>
+<footer>
+    <div class="fixed-bottom">
+        <p class="float-end m-2">create by watanabe</p>
+    </div>
+</footer>
 </html>

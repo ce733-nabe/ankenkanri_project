@@ -11,7 +11,8 @@ class IndexView(TemplateView):
 class AnkenCreateView(CreateView):
     template_name = 'akapp/anken_create.html'
     form_class = AnkenForm
-    success_url = reverse_lazy('akapp:anken_create_complete')
+    #success_url = reverse_lazy('akapp:anken_create_complete')
+    success_url = reverse_lazy('akapp:anken_list')
 
 
 class AnkenCreateCompleteView(TemplateView):
@@ -63,7 +64,8 @@ class AnkenDeleteView(DeleteView):
 class ShuhoCreateView(CreateView):
     template_name = 'akapp/shuho_create.html'
     form_class = ShuhoForm
-    success_url = reverse_lazy('akapp:shuho_create_complete')
+    #success_url = reverse_lazy('akapp:shuho_create_complete')
+    success_url = reverse_lazy('akapp:anken_list')
 
 
 class ShuhoCreateCompleteView(TemplateView):

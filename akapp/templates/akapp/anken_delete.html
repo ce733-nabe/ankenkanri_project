@@ -1,9 +1,11 @@
 {% extends 'akapp/base.html' %}
+{% load bootstrap4 %}
 {% block content %}
-<h1>案件削除</h1>
+{# <h1>案件削除</h1> #}
 <form method="post">
     {% csrf_token %}
     <p>{{ anken.pub_date }} {{ anken.ankenmei }} を削除します</p>
-    <input type="submit" value="削除">
+    {# <input type="submit" value="削除"> #}
+    <input type="submit" class="btn btn-danger btn-sm" value="削除">
 </form>
 {% endblock %}
