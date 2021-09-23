@@ -45,12 +45,13 @@ class AnkenUpdateView(UpdateView):
                 'koumoku', 
                 'joutai', 
                 'jissekikousu',
+                'updated_at',
                 )
     success_url = reverse_lazy('akapp:anken_list')
 
     def form_valid(self, form):
         anken = form.save(commit=False)
-        anken.pub_date = timezone.now()
+        anken.updated_at = timezone.now()
         anken.save()
         return super().form_valid(form)
 
@@ -80,12 +81,13 @@ class ShuhoUpdateView(UpdateView):
                 'pub_date',
                 'naiyou',
                 'categori',
+                'updated_at',
                 )
     success_url = reverse_lazy('akapp:anken_list')
 
     def form_valid(self, form):
         shuho = form.save(commit=False)
-        shuho.pub_date = timezone.now()
+        shuho.updated_at = timezone.now()
         shuho.save()
         return super().form_valid(form)
 
