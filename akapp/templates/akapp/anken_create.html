@@ -2,12 +2,16 @@
 {% load bootstrap4 %}
 {% block content %}
 {# <h6>案件新規作成</h6> #}
-<form method="post">
-    {% csrf_token %}
-    {% bootstrap_form form layout='horizontal' %}
-    {# {{ form.as_p }} #}
-    <input type="submit" class="btn btn-primary btn-sm" value="保存">
-</form>
+<div class="container">
+    <span class="text-secondary">案件新規作成</span><br>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.media}}
+        {% bootstrap_form form layout='horizontal' %}
+        {# {{ form.as_p }} #}
+        <input type="submit" class="btn btn-primary btn-sm" value="保存">
+    </form>
+</div>
 {% endblock %}
 
 {% comment %}

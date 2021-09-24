@@ -1,8 +1,9 @@
 from django.views.generic import TemplateView, CreateView, ListView, DetailView, UpdateView, DeleteView
 from .forms import AnkenForm, ShuhoForm
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy,reverse
 from .models import Anken, Shuho
 from django.utils import timezone
+
 
 class IndexView(TemplateView):
     template_name = 'akapp/index.html'
@@ -47,7 +48,9 @@ class AnkenUpdateView(UpdateView):
                 'jissekikousu',
                 'updated_at',
                 )
-    success_url = reverse_lazy('akapp:anken_list')
+    #success_url = reverse_lazy('akapp:anken_list')
+    def get_success_url(self):
+        return reverse('akapp:anken_detail', kwargs={'pk': self.kwargs['pk']})
 
     def form_valid(self, form):
         anken = form.save(commit=False)
@@ -67,6 +70,8 @@ class ShuhoCreateView(CreateView):
     form_class = ShuhoForm
     #success_url = reverse_lazy('akapp:shuho_create_complete')
     success_url = reverse_lazy('akapp:anken_list')
+    #def get_success_url(self):
+    #    return reverse('akapp:anken_detail', kwargs={'pk': self.kwargs['pk']})
 
 
 class ShuhoCreateCompleteView(TemplateView):
@@ -84,6 +89,8 @@ class ShuhoUpdateView(UpdateView):
                 'updated_at',
                 )
     success_url = reverse_lazy('akapp:anken_list')
+    #def get_success_url(self):
+    #    return reverse('akapp:anken_detail', kwargs={'pk': self.kwargs['pk']})
 
     def form_valid(self, form):
         shuho = form.save(commit=False)

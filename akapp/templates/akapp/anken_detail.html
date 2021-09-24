@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     <table class="table caption-top">
-        <caption>案件詳細</caption>
+        <caption class="caption-top">案件詳細</caption>
         <thead>
             <tr>
             <th scope="col">日付</th>
@@ -28,7 +28,7 @@
 
 <div class="container">
     <table class="table caption-top">
-        <caption>週報一覧</caption>
+        <caption class="caption-top">週報一覧</caption>
         <thead>
             <tr>
             <th scope="col">日付</th>
@@ -40,7 +40,7 @@
         <tbody>
             {% for shuho in anken.shuho_set.all %}
                 <tr>
-                <td>{{ anken.pub_date }}</td>
+                <td>{{ shuho.pub_date }}</td>
                 <td>{{ shuho.naiyou }}</td>
                 <td>{{ shuho.get_categori_display }}</td>
                 <td>

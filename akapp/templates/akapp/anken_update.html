@@ -1,12 +1,15 @@
 {% extends 'akapp/base.html' %}
 {% load bootstrap4 %}
 {% block content %}
-{# <h1>案件編集</h1> #}
-<form method="post">
-    {% csrf_token %}
-    {% bootstrap_form form layout='horizontal' %}
-    {# {{ form.as_p }} #}
-    {# <input type="submit" value="保存"> #}
-    <input type="submit" class="btn btn-primary btn-sm" value="保存">
-</form>
+{# <h1 class="text-left">案件編集</h1> #}
+<div class="container">
+    <span class="text-secondary">案件編集</span><br>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form layout='horizontal' %}
+        {# {{ form.as_p }} #}
+        {# <input type="submit" value="保存"> #}
+        <input type="submit" class="btn btn-primary btn-sm" value="保存">
+    </form>
+</div>
 {% endblock %}

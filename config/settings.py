@@ -11,10 +11,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+print('BASE_DIR:{}'.format(BASE_DIR))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -46,7 +47,12 @@ INSTALLED_APPS = [
     'allauth.account', # 追加
     'allauth.socialaccount', # 追加
     'bootstrap_datepicker_plus',
-]
+    'tinymce',
+    #'django_summernote',
+    ]
+
+#MEDIA_URL = '/media/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'akapp/media/')
 
 SITE_ID = 1
 

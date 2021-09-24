@@ -2,11 +2,14 @@
 {% load bootstrap4 %}
 {% block content %}
 {# <h1>週報編集</h1> #}
-<form method="post">
-    {% csrf_token %}
-    {% bootstrap_form form layout='horizontal' %}
-    {# {{ form.as_p }} #}
-    {# <input type="submit" value="保存"> #}
-    <input type="submit" class="btn btn-primary btn-sm" value="保存">
-</form>
+<div class="container">
+    <span class="text-secondary">週報新規作成</span><br>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form layout='horizontal' %}
+        {# {{ form.as_p }} #}
+        {# <input type="submit" value="保存"> #}
+        <input type="submit" class="btn btn-primary btn-sm" value="保存">
+    </form>
+</div>
 {% endblock %}

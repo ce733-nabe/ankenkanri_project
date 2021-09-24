@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from tinymce.models import HTMLField
+
 
 class Anken(models.Model):
     TANTOUSHA_CHOICES = (
@@ -35,7 +37,8 @@ class Anken(models.Model):
     iraisha = models.CharField(verbose_name='依頼者',max_length=200)
     nouki = models.DateTimeField(verbose_name='納期')
     mitumorikousu = models.IntegerField(verbose_name='見積工数(H)',default=0)
-    naiyou = models.TextField(verbose_name='内容',max_length=1000)
+    #naiyou = models.TextField(verbose_name='内容',max_length=1000)
+    naiyou = HTMLField(verbose_name='内容',max_length=1000)
     genjouchi = models.CharField(verbose_name='現状値',max_length=200)
     kitaikouka = models.CharField(verbose_name='期待効果',max_length=200)
     tantousha = models.CharField(verbose_name='担当者',choices=TANTOUSHA_CHOICES,max_length=200)

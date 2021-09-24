@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+#from django.conf import settings
+#from django.conf.urls.static import static
 
 app_name = 'akapp'
 urlpatterns = [
@@ -15,4 +17,8 @@ urlpatterns = [
     path('shuho/create/complete/', views.ShuhoCreateCompleteView.as_view(), name='shuho_create_complete'),
     path('shuho/update/<int:pk>/', views.ShuhoUpdateView.as_view(), name='shuho_update'),
     path('shuho/delete/<int:pk>/', views.ShuhoDeleteView.as_view(), name='shuho_delete'),
+    
 ]
+
+#if settings.DEBUG:
+#    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
