@@ -16,7 +16,7 @@
             <tr>
             <td>{{ anken.pub_date }}</td>
             <td>{{ anken.ankenmei }}</td>
-            <td>{{ anken.naiyou }}</td>
+            <td>{{ anken.naiyou | safe }}</td>
             <td>
                 <a class="btn btn-secondary btn-sm" href="{% url 'akapp:anken_update' anken.pk %}">編集</a>
                 <a class="btn btn-danger btn-sm" href="{% url 'akapp:anken_delete' anken.pk %}">削除</a>
