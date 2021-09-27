@@ -62,7 +62,8 @@ class Shuho(models.Model):
 
     anken = models.ForeignKey(Anken, on_delete=models.CASCADE)
     pub_date = models.DateTimeField(verbose_name='日付',default=timezone.now)
-    naiyou = models.TextField(verbose_name='内容',max_length=1000)
+    #naiyou = models.TextField(verbose_name='内容',max_length=1000)
+    naiyou = HTMLField(verbose_name='内容',max_length=1000)
     categori = models.CharField(verbose_name='カテゴリ',choices=CATEGORI_CHOICES,max_length=200)
     updated_at = models.DateTimeField(verbose_name='更新日時',blank=True, null=True)
 

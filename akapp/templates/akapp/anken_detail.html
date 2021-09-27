@@ -2,56 +2,102 @@
 {% load bootstrap4 %}
 {% block content %}
 <div class="container">
-    <table class="table caption-top">
-        <caption class="caption-top">案件詳細</caption>
-        <thead>
-            <tr>
-            <th scope="col">日付</th>
-            <th scope="col">案件名</th>
-            <th scope="col">内容</th>
-            <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td>{{ anken.pub_date }}</td>
-            <td>{{ anken.ankenmei }}</td>
-            <td>{{ anken.naiyou | safe }}</td>
-            <td>
-                <a class="btn btn-secondary btn-sm" href="{% url 'akapp:anken_update' anken.pk %}">編集</a>
-                <a class="btn btn-danger btn-sm" href="{% url 'akapp:anken_delete' anken.pk %}">削除</a>
-            </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="border border-info" style="padding:10px;">
+        <table class="table caption-top">
+            <caption class="caption-top">案件詳細</caption>
+            <tbody>
+                <tr>
+                    <th scope="row">日付</th>
+                    <td>{{ anken.pub_date }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">案件名</th>
+                    <td>{{ anken.ankenmei }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">依頼部署</th>
+                    <td>{{ anken.iraibusho }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">依頼者</th>
+                    <td>{{ anken.iraisha }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">納期</th>
+                    <td>{{ anken.nouki }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">見積工数(H)</th>
+                    <td>{{ anken.mitumorikousu }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">内容</th>
+                    <td>{{ anken.naiyou | safe }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">現状値</th>
+                    <td>{{ anken.genjouchi }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">期待効果</th>
+                    <td>{{ anken.kitaikouka }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">担当者</th>
+                    <td>{{ anken.tantousha }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">項目</th>
+                    <td>{{ anken.koumoku }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">状態</th>
+                    <td>{{ anken.joutai }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">実績工数(H)</th>
+                    <td>{{ anken.jissekikousu }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">更新日時</th>
+                    <td>{{ anken.updated_at }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-secondary btn-sm" href="{% url 'akapp:anken_update' anken.pk %}">編集</a>
+        <a class="btn btn-danger btn-sm" href="{% url 'akapp:anken_delete' anken.pk %}">削除</a>
+        <a class="btn btn-primary btn-sm" href="{% url 'akapp:shuho_create' %}">週報新規作成</a>
+    </div>
 </div>
 
 <div class="container">
-    <table class="table caption-top">
-        <caption class="caption-top">週報一覧</caption>
-        <thead>
-            <tr>
-            <th scope="col">日付</th>
-            <th scope="col">内容</th>
-            <th scope="col">カテゴリ</th>
-            <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for shuho in anken.shuho_set.all %}
-                <tr>
-                <td>{{ shuho.pub_date }}</td>
-                <td>{{ shuho.naiyou }}</td>
-                <td>{{ shuho.get_categori_display }}</td>
-                <td>
-                    <a class="btn btn-secondary btn-sm" href="{% url 'akapp:shuho_update' shuho.pk %}">編集</a>
-                    <a class="btn btn-danger btn-sm" href="{% url 'akapp:shuho_delete' shuho.pk %}">削除</a>
-                </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a class="btn btn-primary btn-sm" href="{% url 'akapp:shuho_create' %}">週報新規作成</a>
+    {% for shuho in anken.shuho_set.all %}
+        <div class="border border-info" style="padding:10px;">
+            <table class="table caption-top">
+                <caption class="caption-top">週報一覧</caption>
+                    <tbody>
+                    <tr>
+                        <th scope="row">日付</th>
+                        <td>{{ anken.pub_date }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">内容</th>
+                        <td>{{ anken.naiyou | safe }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">カテゴリ</th>
+                        <td>{{ anken.categori }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">更新日時</th>
+                        <td>{{ anken.updated_at }}</td>
+                    </tr>
+                    </tbody>
+            </table>
+            <a class="btn btn-secondary btn-sm" href="{% url 'akapp:shuho_update' shuho.pk %}">編集</a>
+            <a class="btn btn-danger btn-sm" href="{% url 'akapp:shuho_delete' shuho.pk %}">削除</a>
+        </div>
+    {% endfor %}
 </div>
 {% endblock %}
 

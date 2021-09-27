@@ -6,7 +6,6 @@
     <span class="text-secondary">案件新規作成</span><br>
     <form method="post">
         {% csrf_token %}
-        {{ form.media}}
         {% bootstrap_form form layout='horizontal' %}
         {# {{ form.as_p }} #}
         <input type="submit" class="btn btn-primary btn-sm" value="保存">

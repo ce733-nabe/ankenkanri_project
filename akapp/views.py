@@ -3,6 +3,7 @@ from .forms import AnkenForm, ShuhoForm
 from django.urls import reverse_lazy,reverse
 from .models import Anken, Shuho
 from django.utils import timezone
+from django.shortcuts import render, get_object_or_404
 
 
 class IndexView(TemplateView):
@@ -90,8 +91,10 @@ class ShuhoUpdateView(UpdateView):
                 )
     success_url = reverse_lazy('akapp:anken_list')
     #def get_success_url(self):
-    #    return reverse('akapp:anken_detail', kwargs={'pk': self.kwargs['pk']})
+    #return reverse('akapp:anken_detail', kwargs={'pk': self.kwargs['pk']})
 
+    
+    
     def form_valid(self, form):
         shuho = form.save(commit=False)
         shuho.updated_at = timezone.now()
