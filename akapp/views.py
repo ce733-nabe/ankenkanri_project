@@ -71,14 +71,14 @@ class ShuhoCreateView(CreateView):
     form_class = ShuhoForm
     #success_url = reverse_lazy('akapp:shuho_create_complete')
     #success_url = reverse_lazy('akapp:anken_list')
+    
     def get_success_url(self):
         print(self.object.anken.pk)
         return reverse('akapp:anken_detail', kwargs={'pk': self.object.anken.pk})
 
-
+            
 class ShuhoCreateCompleteView(TemplateView):
     template_name = 'akapp/shuho_create_complete.html'
-
 
 
 class ShuhoUpdateView(UpdateView):
@@ -90,6 +90,7 @@ class ShuhoUpdateView(UpdateView):
                 'categori',
                 'updated_at',
                 )
+    
     #success_url = reverse_lazy('akapp:anken_list')
     def get_success_url(self):
         print(self.object.anken.pk)

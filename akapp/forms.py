@@ -42,6 +42,14 @@ class ShuhoForm(forms.ModelForm):
                 'categori',
                 'updated_at',
                 )
+        #exclude = ('anken',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['naiyou'].initial = '<p>＜実施内容＞</p><p>＜結果・問題点＞</p><p>＜次回予定＞</p><p>＜添付先＞<p/>'
+        
+        #self.fields['anken'].queryset = Anken.objects.filter(id=1)
+        
         
         
     

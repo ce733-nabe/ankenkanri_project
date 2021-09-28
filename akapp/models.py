@@ -60,7 +60,7 @@ class Shuho(models.Model):
                             ("4", "その他"),
                         )
 
-    anken = models.ForeignKey(Anken, on_delete=models.CASCADE)
+    anken = models.ForeignKey(Anken, verbose_name='案件',on_delete=models.CASCADE)
     pub_date = models.DateTimeField(verbose_name='日付',default=timezone.now)
     #naiyou = models.TextField(verbose_name='内容',max_length=1000)
     naiyou = HTMLField(verbose_name='内容',max_length=1000)
@@ -68,4 +68,4 @@ class Shuho(models.Model):
     updated_at = models.DateTimeField(verbose_name='更新日時',blank=True, null=True)
 
     def __str__(self):
-        return self.naiyou
+        return self.anken
