@@ -51,8 +51,9 @@ INSTALLED_APPS = [
     #'django_summernote',
     ]
 
-#MEDIA_URL = '/media/'
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'akapp/media/')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+print('MEDIA_ROOT:{}'.format(MEDIA_ROOT))
 
 SITE_ID = 1
 

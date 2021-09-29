@@ -16,7 +16,7 @@ class AnkenCreateView(CreateView):
     #success_url = reverse_lazy('akapp:anken_create_complete')
     success_url = reverse_lazy('akapp:anken_list')
 
-
+    
 class AnkenCreateCompleteView(TemplateView):
     template_name = 'akapp/anken_create_complete.html'
 
@@ -48,6 +48,7 @@ class AnkenUpdateView(UpdateView):
                 'joutai', 
                 'jissekikousu',
                 'updated_at',
+                'image'
                 )
     #success_url = reverse_lazy('akapp:anken_list')
     def get_success_url(self):

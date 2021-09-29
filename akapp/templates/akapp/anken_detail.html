@@ -64,6 +64,9 @@
                 </tr>
             </tbody>
         </table>
+        <div>
+            <img src="{{ anken.image.url }}" style="width:auto; height:auto;"/>
+        </div>
         <a class="btn btn-secondary btn-sm" href="{% url 'akapp:anken_update' anken.pk %}">編集</a>
         <a class="btn btn-danger btn-sm" href="{% url 'akapp:anken_delete' anken.pk %}">削除</a>
         <a class="btn btn-primary btn-sm" href="{% url 'akapp:shuho_create' %}">週報新規作成</a>

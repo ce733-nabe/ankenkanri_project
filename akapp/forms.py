@@ -20,6 +20,7 @@ class AnkenForm(forms.ModelForm):
                 'joutai', 
                 'jissekikousu',
                 'updated_at',
+                'image'
                 )
         widgets = {
             'nouki': datetimepicker.DateTimePickerInput(

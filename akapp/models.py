@@ -46,7 +46,7 @@ class Anken(models.Model):
     joutai = models.CharField(verbose_name='状態',choices=JOUTAI_CHOICES,max_length=200)
     jissekikousu = models.IntegerField(verbose_name='実績工数(H)',default=0)
     updated_at = models.DateTimeField(verbose_name='更新日時',blank=True, null=True)
-    
+    image = models.ImageField(upload_to='media', blank=True, null=True)
     def __str__(self):
         return self.ankenmei
 
