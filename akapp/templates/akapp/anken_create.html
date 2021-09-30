@@ -6,7 +6,7 @@
 {# <h6>案件新規作成</h6> #}
 <div class="container">
     <span class="text-secondary">案件新規作成</span><br>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post">
         {% csrf_token %}
         {% bootstrap_form form layout='horizontal' %}
         {# {{ form.as_p }} #}

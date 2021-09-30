@@ -33,8 +33,9 @@ class AnkenDetailView(DetailView):
 
 class AnkenUpdateView(UpdateView):
     template_name = 'akapp/anken_update.html'
+    form_class = AnkenForm
     model = Anken
-    fields = ('pub_date',
+    '''fields = ('pub_date',
                 'ankenmei',
                 'iraibusho',
                 'iraisha',
@@ -48,8 +49,8 @@ class AnkenUpdateView(UpdateView):
                 'joutai', 
                 'jissekikousu',
                 'updated_at',
-                'image'
-                )
+                #'image'
+                )'''
     #success_url = reverse_lazy('akapp:anken_list')
     def get_success_url(self):
         return reverse('akapp:anken_detail', kwargs={'pk': self.kwargs['pk']})
@@ -84,13 +85,14 @@ class ShuhoCreateCompleteView(TemplateView):
 
 class ShuhoUpdateView(UpdateView):
     template_name = 'akapp/shuho_update.html'
+    form_class = ShuhoForm
     model = Shuho
-    fields = ('anken',
+    '''fields = ('anken',
                 'pub_date',
                 'naiyou',
                 'categori',
                 'updated_at',
-                )
+                )'''
     
     #success_url = reverse_lazy('akapp:anken_list')
     def get_success_url(self):

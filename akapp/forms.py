@@ -1,7 +1,7 @@
 from django import forms
 from .models import Anken, Shuho
 import bootstrap_datepicker_plus as datetimepicker
-#from django_summernote.widgets import SummernoteWidget
+from django_summernote.widgets import SummernoteWidget
 
 class AnkenForm(forms.ModelForm):
     class Meta:
@@ -20,7 +20,7 @@ class AnkenForm(forms.ModelForm):
                 'joutai', 
                 'jissekikousu',
                 'updated_at',
-                'image'
+                #'image'
                 )
         widgets = {
             'nouki': datetimepicker.DateTimePickerInput(
@@ -30,7 +30,7 @@ class AnkenForm(forms.ModelForm):
                     'dayViewHeaderFormat': 'YYYY年 MMMM',
                 }
             ),
-            #'naiyou': SummernoteWidget(),
+            'naiyou': SummernoteWidget(),
         }
                 
         
@@ -44,6 +44,9 @@ class ShuhoForm(forms.ModelForm):
                 'updated_at',
                 )
         #exclude = ('anken',)
+        widgets = {
+            'naiyou': SummernoteWidget(),
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

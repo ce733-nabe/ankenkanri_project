@@ -48,12 +48,14 @@ INSTALLED_APPS = [
     'allauth.socialaccount', # 追加
     'bootstrap_datepicker_plus',
     'tinymce',
-    #'django_summernote',
+    'django_summernote',
     ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 print('MEDIA_ROOT:{}'.format(MEDIA_ROOT))
+
+X_FRAME_OPTIONS = "SAMEORIGIN"
 
 SITE_ID = 1
 
