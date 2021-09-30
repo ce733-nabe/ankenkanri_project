@@ -1,15 +1,6 @@
 {% extends 'akapp/base.html' %}
+
 {% block content %}
-
-{% comment %}
-{% for anken in anken_list %}
-<p>
-    {{ anken.pub_date }}
-    <a href="{% url 'akapp:anken_detail' anken.pk %}">{{ anken.ankenmei }}</a>
-</p>
-{% endfor %}
-{% endcomment %}
-
 <div class="container">
     <table class="table table-striped">
         <caption class="caption-top">案件一覧</caption>
