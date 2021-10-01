@@ -47,6 +47,7 @@ class Anken(models.Model):
     jissekikousu = models.IntegerField(verbose_name='実績工数(H)',default=0)
     updated_at = models.DateTimeField(verbose_name='更新日時',blank=True, null=True)
     #image = models.ImageField(upload_to='media', blank=True, null=True)
+    
     def __str__(self):
         return self.ankenmei
 

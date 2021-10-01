@@ -20,8 +20,8 @@ from config import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('akapp.urls')), # 追加：includeメソッドでurl設定を追加
-    path('account/', include('allauth.urls')), # 追加
+    path('', include('akapp.urls')),
+    path('account/', include('allauth.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('summernote/',include('django_summernote.urls')),
 ]

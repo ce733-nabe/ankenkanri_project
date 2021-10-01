@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,17 +41,17 @@ INSTALLED_APPS = [
     'bootstrap4',
     'widget_tweaks',
     'accounts',
-    'django.contrib.sites', # 追加
-    'allauth', # 追加
-    'allauth.account', # 追加
-    'allauth.socialaccount', # 追加
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'bootstrap_datepicker_plus',
     'tinymce',
     'django_summernote',
     ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 print('MEDIA_ROOT:{}'.format(MEDIA_ROOT))
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
@@ -84,7 +83,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             'builtins': [
-                'bootstrap4.templatetags.bootstrap4', # 追加
+                'bootstrap4.templatetags.bootstrap4',
             ],
         },
     },
@@ -141,9 +140,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    BASE_DIR / 'static',
-)
+#STATICFILES_DIRS = (BASE_DIR / 'static',)
+#print('STATICFILES_DIRS:{}'.format(STATICFILES_DIRS))
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

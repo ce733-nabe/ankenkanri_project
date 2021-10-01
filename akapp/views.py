@@ -52,6 +52,7 @@ class AnkenUpdateView(UpdateView):
                 #'image'
                 )'''
     #success_url = reverse_lazy('akapp:anken_list')
+
     def get_success_url(self):
         return reverse('akapp:anken_detail', kwargs={'pk': self.kwargs['pk']})
 
@@ -93,13 +94,12 @@ class ShuhoUpdateView(UpdateView):
                 'categori',
                 'updated_at',
                 )'''
-    
     #success_url = reverse_lazy('akapp:anken_list')
+
     def get_success_url(self):
         print(self.object.anken.pk)
         return reverse('akapp:anken_detail', kwargs={'pk': self.object.anken.pk})
 
-    
     
     def form_valid(self, form):
         shuho = form.save(commit=False)
@@ -112,6 +112,7 @@ class ShuhoDeleteView(DeleteView):
     template_name = 'akapp/shuho_delete.html'
     model = Shuho
     #success_url = reverse_lazy('akapp:anken_list')
+
     def get_success_url(self):
         print(self.object.anken.pk)
         return reverse('akapp:anken_detail', kwargs={'pk': self.object.anken.pk})
