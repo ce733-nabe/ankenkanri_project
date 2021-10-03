@@ -1,1 +1,1 @@
-web: gunicorn ankenkanri_project.wsgi 
+web: gunicorn config.wsgi 
