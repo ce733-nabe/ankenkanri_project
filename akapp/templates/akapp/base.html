@@ -12,7 +12,9 @@
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
     {{ form.media }}
-
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'akapp/css/style.css' %}">
+    
 </head>
 <body>
     <header>
@@ -37,7 +39,7 @@
     </header>
 
     <div><p></p></div>
-    
+
     {% block content %}
     {% endblock %}
 
