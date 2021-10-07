@@ -72,3 +72,5 @@ Werkzeug==2.0.1
 whitenoise==5.3.0
 wrapt==1.12.1
 zipp==3.5.0
+django-cloudinary-storage
+dj3-cloudinary-storage
